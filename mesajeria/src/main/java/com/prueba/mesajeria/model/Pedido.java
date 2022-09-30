@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Value;
 @Entity
@@ -23,6 +24,9 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name = "id_estado")
 	private Estado estado;
+	@ManyToOne
+	@JoinColumn(name = "id_usu")
+	private Usuario usuario;
 	@Column(name="hora_pedido")
 	private Date horaPedido;
 	private String producto;
@@ -31,13 +35,14 @@ public class Pedido {
 		
 	}
 	
-	public Pedido(int id, Vehiculo vehiculo, Estado estado, Date horaPedido, String producto) {
+	public Pedido(int id, Vehiculo vehiculo, Estado estado, Date horaPedido, String producto,Usuario usuario) {
 		super();
 		this.id = id;
 		this.vehiculo = vehiculo;
 		this.estado = estado;
 		this.horaPedido = horaPedido;
 		this.producto = producto;
+		this.usuario = usuario;
 	}
 	public int getId() {
 		return id;
@@ -70,6 +75,14 @@ public class Pedido {
 
 	public void setProducto(String producto) {
 		this.producto = producto;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	

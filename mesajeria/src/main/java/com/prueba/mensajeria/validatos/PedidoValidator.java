@@ -11,6 +11,8 @@ public class PedidoValidator {
 	public static String ERROR_VEHICULO_ID = "El id del vehiculo es incorrecto";
 	public static String ERROR_ESTADO= "Es necesario el estado asociado";
 	public static String ERROR_ESTADO_ID= "El id del estado es incorrecto";
+	public static String ERROR_USUARIO= "Es necesario el usuario asociado";
+	public static String ERROR_USUARIO_ID= "El id del usuario es incorrecto";
 	
 	public static Validador validar(Pedido pediddo) {
 		Validador validator = new Validador();
@@ -33,6 +35,13 @@ public class PedidoValidator {
 			}else {
 				if(pediddo.getEstado().getId() == -1) {
 					mensajes.add(ERROR_ESTADO_ID);
+				}
+			}
+			if(pediddo.getUsuario() == null){
+				mensajes.add(ERROR_USUARIO);
+			}else {
+				if(pediddo.getUsuario().getId() == -1) {
+					mensajes.add(ERROR_USUARIO_ID);
 				}
 			}
 		}else {

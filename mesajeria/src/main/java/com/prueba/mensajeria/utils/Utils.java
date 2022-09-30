@@ -10,6 +10,7 @@ public class Utils {
 		
 		for(int i=0; i < mensajes.size();i++) {
 			mensaje.append(mensajes.get(i));
+			mensaje.append(" ");
 		}
 		
 		return mensaje.toString();
